@@ -9,28 +9,20 @@
 <body>
     <div id="login-screen" class="window">
         <div class="title-bar">
-            <div class="title-bar-text">Авторизация</div>
+            <div class="title-bar-text">Windows NT Authentication</div>
             <div class="title-bar-controls">
-                <button aria-label="Закрыть"></button>
+                <button aria-label="Close"></button>
             </div>
         </div>
-        <div class="login-content">
+        <div class="window-body">
             <form id="login-form">
-                <div class="form-row">
-                    <label for="username">Имя пользователя:</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div class="form-row">
-                    <label for="password">Пароль:</label>
-                    <input type="password" id="password" name="password">
-                </div>
-            </form>
-            <div class="login-buttons">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password"><br><br>
                 <button type="submit">Войти</button>
-                <button type="button">Отмена</button>
-                <button type="button" id="guest-login">Гость</button>
-                <button type="button">Помощь</button>
-            </div>
+                <button type="button" id="guest-login">Войти как гость</button>
+            </form>
         </div>
     </div>
 
