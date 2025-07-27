@@ -51,8 +51,8 @@ body {
 }
 
 #login-form input {
-    border-radius: 0;
-    border: 1px inset black;
+    border-radius: 2px;
+    border: 2px #959595 outset;
 }
 
 #login-form button {
