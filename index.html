@@ -9,23 +9,23 @@
 <body>
 
     <div id="login-screen" class="window">
-        <div class="key">
-            <img alt="key" src="files/keys.png">
-        </div>
         <div class="title-bar">
             <div class="title-bar-text">Авторизация</div>
             <div class="title-bar-controls">
-                <button aria-label="Close"></button>
+                <button aria-label="Закрыть"></button>
             </div>
         </div>
-        <div class="window-body">
+        <div class="login-content">
+            <img src="files/key.png" alt="Key Icon" class="key-icon">
             <form id="login-form">
                 <label for="username">Имя пользователя:</label>
-                <input type="text" id="username" name="username"><br><br>
+                <input type="text" id="username" name="username"><br>
                 <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password"><br><br>
-                <button type="submit">ОК</button>
-                <button type="button" id="guest-login">Гостевой режим</button>
+                <input type="password" id="password" name="password"><br>
+                <div class="login-buttons">
+                    <button type="submit">ОК</button>
+                    <button type="button" id="guest-login">Гость</button>
+                </div>
             </form>
         </div>
     </div>
