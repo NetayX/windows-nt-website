@@ -14,7 +14,7 @@ body {
     background-color: #C0C0C0;
     border: 2px solid white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: max-content;
     z-index: 10;
 }
 
@@ -30,6 +30,7 @@ body {
 
 .title-bar-text {
     font-weight: bold;
+    margin-left: 1vh;
 }
 
 .title-bar-controls button {
@@ -43,6 +44,21 @@ body {
 .window-body {
     padding: 10px;
     overflow: auto; 
+}
+
+#login-form label {
+    color: black;
+}
+
+#login-form input {
+    border-radius: 0;
+    border: 1px inset black;
+}
+
+#login-form button {
+    border-radius: 0;
+    border: 1px inset black;
+    background-color: inherit;
 }
 
 #desktop {
@@ -84,6 +100,7 @@ body {
     cursor: pointer;
     text-align: center; 
     word-wrap: break-word; 
+    width: max-content;
 }
 
 .file-icon img {
