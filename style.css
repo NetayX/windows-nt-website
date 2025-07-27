@@ -154,7 +154,7 @@ body {
     border: 2px groove #7C7C7C;
 }
 .buttons button:active {
-    background: #e5e5e5;
+    background: #a7a7a7;
     outline: 1px #656565 double;
     outline-offset: -4px;
 }
