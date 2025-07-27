@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div id="login-screen" class="window">
         <div class="title-bar">
             <div class="title-bar-text">Авторизация</div>
@@ -16,17 +15,23 @@
             </div>
         </div>
         <div class="login-content">
-            <img src="files/keys.png" alt="Key Icon" class="key-icon">
+            <img src="files/keys.png" alt="kee" class="key-icon">
             <form id="login-form">
-                <label for="username">Имя пользователя:</label>
-                <input type="text" id="username" name="username"><br>
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password"><br>
-                <div class="login-buttons">
-                    <button type="submit">ОК</button>
-                    <button type="button" id="guest-login">Гость</button>
+                <div class="form-row">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="form-row">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password">
                 </div>
             </form>
+            <div class="login-buttons">
+                <button type="submit">Войти</button>
+                <button type="button">Отмена</button>
+                <button type="button" id="guest-login">Гость</button>
+                <button type="button">Помощь</button>
+            </div>
         </div>
     </div>
 
