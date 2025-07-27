@@ -150,14 +150,14 @@ body {
         width: 8vw;
         margin-left: 2px;
         border-radius: 1px;
-        border: 1px outset #959595;
+        border: 2px outset #959595;
     }
 }
 .buttons button::hover {
-    border: 1px inset #959595;
+    border: 2px outset #959595;
 }
 #login-form input {
     outline: none;
     border-radius: 1px;
-    border: 1px inset #959595;
+    border: 2px inset #959595;
 }
