@@ -46,24 +46,54 @@ body {
     overflow: auto; 
 }
 
+/* Login Screen Styles */
+#login-screen {
+    width: 400px; /* Увеличиваем ширину окна входа */
+}
+
+.login-content {
+    display: flex;
+    padding: 10px;
+    align-items: flex-start; /* Выравниваем по верхнему краю */
+}
+
+.key-icon {
+    width: 64px; /* Размер картинки ключа */
+    height: 64px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column; /* Чтобы элементы формы располагались вертикально */
+    width: 100%; /* Занимает доступное пространство справа от картинки */
+}
+
 #login-form label {
+    margin-bottom: 5px;
     color: black;
 }
 
 #login-form input {
-    border-radius: 2px;
-    border: 2px #959595 outset;
+    width: calc(100% - 10px); /* Чтобы учесть padding и border */
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #808080;
+    box-sizing: border-box; /* Важно, чтобы padding и border не увеличивали ширину */
 }
 
-#login-form button {
-    border-radius: 0;
-    border: 1px inset black;
-    background-color: inherit;
+.login-buttons {
+    display: flex;
+    justify-content: space-around; /* Равномерно распределяем кнопки */
+    margin-top: 10px;
 }
 
-#login-screen .key {
-    height: 100%;
-    width: 1vw;
+.login-buttons button {
+    padding: 5px 10px;
+    background-color: #C0C0C0;
+    border: 1px outset gray;
+    cursor: pointer;
 }
 
 #desktop {
