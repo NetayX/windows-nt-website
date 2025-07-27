@@ -146,23 +146,21 @@ body {
         width: 8vw;
         margin-left: 2px;
         border-radius: 1px;
-        border: 2px outset #959595;
+        border: 2px ridge #959595;
         cursor: pointer;
     }
 }
 .buttons button:hover {
-    border: 2px outset #7C7C7C;
+    border: 2px groove #7C7C7C;
 }
 .buttons button:active {
-  background: #e5e5e5;
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-          box-shadow: inset 0px 0px 5px #c1c1c1;
-   outline: none;
+    background: #e5e5e5;
+    outline: 1px #656565 double;
+    outline-offset: -4px;
 }
     
 #login-form input {
     outline: none;
     border-radius: 1px;
-    border: 2px inset #959595;
+    border: 2px ridge #959595;
 }
