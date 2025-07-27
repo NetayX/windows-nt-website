@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows NT Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Windows NT Authentication</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <form id="login-form">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <button type="submit">Войти</button>
+                <button type="button" id="guest-login">Войти как гость</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="desktop" style="display: none;">
+        <div class="taskbar">
+            <img src="" class="start-button" alt="Windows Logo">
+            <span>Windows NT Web</span>
+        </div>
+
+        <div class="file-icon" data-file="news">
+            <img src="" alt="News">
+            <span>Новости</span>
+        </div>
+        <div class="file-icon" data-file="table">
+            <img src="" alt="Table">
+            <span>Таблица</span>
+        </div>
+        <div class="file-icon" data-file="rules">
+            <img src="" alt="Rules">
+            <span>Правила</span>
+        </div>
+    </div>
+
+    <div id="windows-container">
+        <!-- Окна будут добавляться сюда динамически -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
