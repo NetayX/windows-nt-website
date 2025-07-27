@@ -138,6 +138,10 @@ body {
     height: 100% !important;
 }
 
+#login-form {
+    float: right;
+}
+
 #login-form .buttons {
     display: flex;
     justify-content: center;
@@ -145,5 +149,12 @@ body {
         background-color: inherit;
         width: 8vw;
         margin-left: 2px;
+        border-radius: 1px;
+        border: 1px inset gray;
     }
+}
+#login-form input {
+    outline: none;
+    border-radius: 1px;
+    border: 1px inset gray;
 }
