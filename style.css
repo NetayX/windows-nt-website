@@ -114,3 +114,42 @@ body {
     flex-grow: 1;
     overflow: auto;
 }
+
+.taskbar-button {
+    background-color: #C0C0C0;
+    border: 1px solid gray;
+    padding: 3px 8px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.taskbar-button.active {
+    font-weight: bold;
+}
+
+#desktop {
+    width: 100%;
+    height: 100vh;
+    background-color: #008080;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); /* Адаптивное расположение */
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.file-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center; /* Центрируем текст под иконкой */
+    word-wrap: break-word; /* Переносим длинные названия */
+}
+
+.file-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
