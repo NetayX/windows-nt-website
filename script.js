@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const guestLoginButton = document.getElementById('guest-login');
     const windowsContainer = document.getElementById('windows-container');
+    const taskbar = document.querySelector('.taskbar');
 
     // Функция для отображения рабочего стола и скрытия экрана входа
     const showDesktop = () => {
@@ -33,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Функция для создания окна приложения
+    let windowZIndex = 1; // Для управления порядком окон
+
     const createWindow = (title, content) => {
         const windowDiv = document.createElement('div');
         windowDiv.classList.add('app-window');
         windowDiv.style.position = 'absolute';
-
-        // Сделаем перетаскиваемым
-        windowDiv.addEventListener('mousedown', startDrag);
+        windowDiv.style.zIndex = windowZIndex++; // Устанавливаем z-index
 
         const titleBar = document.createElement('div');
         titleBar.classList.add('title-bar');
@@ -58,12 +59,74 @@ document.addEventListener('DOMContentLoaded', () => {
         windowsContainer.appendChild(windowDiv);
 
         // Добавляем обработчики событий для кнопок
-        titleBar.querySelector('[aria-label="Close"]').addEventListener('click', () => {
+        const closeButton = titleBar.querySelector('[aria-label="Close"]');
+        const minimizeButton = titleBar.querySelector('[aria-label="Minimize"]');
+
+        closeButton.addEventListener('click', () => {
             windowDiv.remove();
+            // Удаляем кнопку из панели задач
+            const taskbarButton = document.querySelector(`[data-window-id="${windowDiv.id}"]`);
+            if (taskbarButton) {
+                taskbarButton.remove();
+            }
         });
-        titleBar.querySelector('[aria-label="Minimize"]').addEventListener('click', () => {
+
+        minimizeButton.addEventListener('click', () => {
             windowDiv.style.display = 'none'; // Свернуть окно
+            // Подсвечиваем кнопку на панели задач
+            const taskbarButton = document.querySelector(`[data-window-id="${windowDiv.id}"]`);
+            if (taskbarButton) {
+                taskbarButton.classList.add('active');
+            }
         });
+
+        // Добавляем кнопку на панель задач
+        const taskbarButton = document.createElement('button');
+        taskbarButton.textContent = title;
+        taskbarButton.dataset.windowId = windowDiv.id = `window-${Date.now()}`; // Уникальный ID
+        taskbarButton.classList.add('taskbar-button');
+
+        taskbarButton.addEventListener('click', () => {
+            windowDiv.style.display = 'block'; // Развернуть окно
+            windowDiv.style.zIndex = windowZIndex++;
+            windowDiv.classList.remove('active');
+        });
+
+        taskbar.appendChild(taskbarButton);
+
+
+        // Сделаем перетаскиваемым
+        titleBar.addEventListener('mousedown', startDrag);
+
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        function startDrag(e) {
+            isDragging = true;
+            offsetX = e.clientX - windowDiv.offsetLeft;
+            offsetY = e.clientY - windowDiv.offsetTop;
+
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            windowDiv.style.left = (e.clientX - offsetX) + 'px';
+            windowDiv.style.top = (e.clientY - offsetY) + 'px';
+        }
+
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', stopDrag);
+        }
+
+        // Обработчик кликов по окну для перемещения на передний план
+        windowDiv.addEventListener('mousedown', () => {
+            windowDiv.style.zIndex = windowZIndex++;
+        });
+
 
         return windowDiv;
     };
@@ -113,29 +176,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return table.outerHTML; // Возвращаем HTML таблицы
     };
-
-
-    let isDragging = false;
-    let offsetX, offsetY;
-
-    function startDrag(e) {
-        isDragging = true;
-        offsetX = e.clientX - this.offsetLeft;
-        offsetY = e.clientY - this.offsetTop;
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', stopDrag);
-    }
-
-    function drag(e) {
-        if (!isDragging) return;
-        this.style.left = (e.clientX - offsetX) + 'px';
-        this.style.top = (e.clientY - offsetY) + 'px';
-    }
-
-    function stopDrag() {
-        isDragging = false;
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', stopDrag);
-    }
-
 });
