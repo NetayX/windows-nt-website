@@ -138,10 +138,6 @@ body {
     height: 100% !important;
 }
 
-#login-form {
-    float: right;
-}
-
 #login-form .buttons {
     display: flex;
     justify-content: center;
@@ -153,7 +149,7 @@ body {
         border: 2px outset #959595;
     }
 }
-.buttons button::hover {
+.buttons button:hover {
     border: 2px outset #959595;
 }
 #login-form input {
