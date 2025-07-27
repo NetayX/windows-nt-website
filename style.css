@@ -153,7 +153,7 @@ body {
         border: 1px outset #959595;
     }
 }
-.buttons button::focus {
+.buttons button::hover {
     border: 1px inset #959595;
 }
 #login-form input {
